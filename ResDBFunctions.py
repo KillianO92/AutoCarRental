@@ -35,4 +35,4 @@ class ResDBFunctions(db.BaseDBFunctions):
         super().AddNewRecord("INSERT INTO Reservations(CarID, CustomerID, StartDate, EndDate) VALUES('{}', '{}', '{}', '{}')".format(carID, custID, sDate, eDate))
 
     def DeleteReservation(self, reservationID):
-        super().loadRecords("DELETE FROM Reservations WHERE ReservationID = '{}'".format(reservationID))
+        super().AddRecords("DELETE FROM Reservations WHERE ReservationID = '{}'".format(reservationID))

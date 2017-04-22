@@ -94,39 +94,6 @@ class MainWindow:
     def About(self):
         print("This is a program to track and create reservations for vehicles.")
     
-    def lstMakeSelectionChanged(self, event):
-        m = event.widget
-        if m.curselection() != '':
-            index = int(m.curselection()[0])
-            value = m.get(index)
-            cars = dbCars.loadCarsByMake(value)
-            self.lstModels.delete(0, END)
-            self.lstModels.insert(END, "Models")
-            self.lstModels.insert(END, "----------")
-            self.lstModels.insert(END, " ")
-            self.lstDetails.delete(0, END)
-            self.lstDetails.insert(END, "Details")
-            self.lstDetails.insert(END, "----------")
-            self.lstDetails.insert(END, " ")
-            for index, dat in enumerate(cars):
-                self.lstModels.insert(END, '{}'.format(dat[1]))
-
-
-
-    def lstModelSelectionChanged(self, event):
-        m = event.widget
-        if m.curselection() != '':
-            index = int(m.curselection()[0])
-            value = m.get(index)
-            cars = dbCars.loadCarsByModel(value)
-            self.lstDetails.delete(0, END)
-            self.lstDetails.insert(END, "Details")
-            self.lstDetails.insert(END, "----------")
-            self.lstDetails.insert(END, " ")
-            self.lstDetails.insert(END, "Colors:\n")
-            for index, dat in enumerate(cars):
-                self.lstDetails.insert(END, "              {}".format(dat[2]))
-            self.lstDetails.insert(END, "Doors: {}".format(dat[1]))
 
 
 

@@ -11,7 +11,7 @@ class ResFunctions(object):
 
     def popup(self, event):
         try:
-            self.treeRes.selection_set(self.treeRes.identify_row(event.y))
+            self.treeRes.selection_set(self.treeRes.identify('item', event.x, event.y))
             self.cMenu.post(event.x_root, event.y_root)
         finally:
             print("Did it Show for Res")
@@ -76,11 +76,11 @@ class ResFunctions(object):
         self.BuildTreeView(results)
 
     def Delete(self):
-        curItem = self.treeRes.focus()
+        curItem = self.treeRes.selection()[0]
         selected = self.treeRes.item(curItem)
         resID = selected["values"][0]
         print(resID)
-        dbRes.DeleteReservation(resID)
+        #dbRes.DeleteReservation(resID)
         print('{} was deleted'.format(resID))
 
         self.Reload()
